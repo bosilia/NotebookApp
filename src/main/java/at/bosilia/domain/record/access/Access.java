@@ -6,10 +6,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Entity;
 import java.util.List;
 
-@Entity
+
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Access extends AbstractPersistable<Long> implements IAccess{
 

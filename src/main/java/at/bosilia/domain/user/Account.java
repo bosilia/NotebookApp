@@ -7,12 +7,13 @@ import lombok.NonNull;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Account extends AbstractPersistable<Long>{
 
-    @NotNull @NonNull
+    @OneToOne(optional = false, mappedBy = "account")
     private User user;
     @NotNull @NonNull
     private String accountName;
@@ -22,5 +23,7 @@ public class Account extends AbstractPersistable<Long>{
     public Account (User user, String accountName){
         this.user = user;
         this.accountName = accountName;
+        //pw hash gen
+        user.setAccount(this);
     }
 }
