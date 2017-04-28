@@ -4,18 +4,21 @@ import at.bosilia.domain.record.Record;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@DiscriminatorValue("NB")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Notebook extends Record {
 
     private String description;
 
     @OneToMany(mappedBy = "notebook")
-    private List<Note> notes;
+    private final List<Note> notes = new ArrayList<>();
 
     public void addNote(Note note){
         notes.add(note);

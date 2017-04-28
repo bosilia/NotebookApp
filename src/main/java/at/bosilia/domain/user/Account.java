@@ -20,8 +20,8 @@ public class Account extends AbstractPersistable<Long>{
     private String salt;
     private String hash;
 
-    public Account (User user, String accountName){
-        this.user = user;
+    public Account (String firstName, String lastName, String accountName){
+        this.user = new User(firstName, lastName);
         this.accountName = accountName;
         //pw hash gen
         user.setAccount(this);
