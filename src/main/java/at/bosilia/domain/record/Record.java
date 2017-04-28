@@ -4,9 +4,12 @@ import at.bosilia.domain.user.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
@@ -18,6 +21,7 @@ public abstract class Record extends AbstractPersistable<Long>{
 
     @ManyToOne(optional = false)
     private User author;
+    @NotNull @NonNull @Size(min = 1, max = 25)
     private String title;
     @ManyToOne(optional = false)
     private Category category;

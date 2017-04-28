@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Notebook extends Record {
 
+    @Max(value = 100)
     private String description;
 
     @OneToMany(mappedBy = "notebook")

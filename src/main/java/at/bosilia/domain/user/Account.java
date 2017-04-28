@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -15,7 +16,7 @@ public class Account extends AbstractPersistable<Long>{
 
     @OneToOne(optional = false, mappedBy = "account")
     private User user;
-    @NotNull @NonNull
+    @NotNull @NonNull @Size(min = 3, max = 20)
     private String accountName;
     private String salt;
     private String hash;
