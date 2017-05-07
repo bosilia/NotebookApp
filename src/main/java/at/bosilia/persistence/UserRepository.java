@@ -9,7 +9,9 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    List<User> findUsersByFirstName (String firstName);
-    List<User> findUsersByLastName (String lastName);
+    List<User> findUsersByFirstName(String firstName);
+
+    List<User> findUsersByLastName(String lastName);
+
     List<User> findUsersByFirstNameAndLastName(String firstName, String lastName);
 }

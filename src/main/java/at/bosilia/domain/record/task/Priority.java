@@ -12,7 +12,9 @@ enum Priority {
     HIGH("This is very important!"), MEDIUM("This is neither important nor unimportant"),
     LOW("This is unimportant.");
 
-    @Getter @NotNull @NonNull
+    @Getter
+    @NotNull
+    @NonNull
     private String description;
 
 }

@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Account extends AbstractPersistable<Long>{
+public class Account extends AbstractPersistable<Long> {
 
     @OneToOne(optional = false, mappedBy = "account")
     private User user;
@@ -21,10 +21,10 @@ public class Account extends AbstractPersistable<Long>{
     private String salt;
     private String hash;
 
-    public Account (String firstName, String lastName, String accountName){
-        this.user = new User(firstName, lastName);
+    public Account(User user, String accountName, String password) {
+        this.user = user;
         this.accountName = accountName;
-        //pw hash gen
+        //TODO has gen with password
         user.setAccount(this);
     }
 }

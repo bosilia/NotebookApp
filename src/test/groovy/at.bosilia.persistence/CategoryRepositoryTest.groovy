@@ -14,8 +14,8 @@ class CategoryRepositoryTest extends Specification {
     CategoryRepository categoryRepository
     Category category
 
-    def setup(){
-        category =  new Category("Important", "an important category")
+    def setup() {
+        category = new Category("Important", "an important category")
         categoryRepository.save(category)
     }
 

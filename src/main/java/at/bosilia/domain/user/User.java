@@ -19,26 +19,27 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User extends AbstractPersistable<Long>{
+public class User extends AbstractPersistable<Long> {
 
+    @OneToMany(mappedBy = "author")
+    private final List<Record> records = new ArrayList<>();
     @NonNull @NotNull @Size(min = 1, max = 20)
     private String firstName;
     @NonNull @NotNull @Size(min = 1, max = 20)
     private String lastName;
     private LocalDate created;
     private LocalDate lastLogin;
-    @OneToOne @Setter
+    @OneToOne
+    @Setter
     private Account account;
-    @OneToMany(mappedBy = "author")
-    private final List<Record> records = new ArrayList<>();
 
-    public User(String firstName, String lastName){
+    public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.created = LocalDate.now();
     }
 
-    public void addRecord(Record record){
+    public void addRecord(Record record) {
         this.records.add(record);
     }
 }

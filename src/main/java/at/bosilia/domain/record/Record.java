@@ -13,11 +13,11 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "TYPE")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public abstract class Record extends AbstractPersistable<Long>{
+public abstract class Record extends AbstractPersistable<Long> {
 
     @ManyToOne(optional = false)
     private User author;
@@ -28,7 +28,7 @@ public abstract class Record extends AbstractPersistable<Long>{
     private LocalDate created;
     private LocalDate lastChanged;
 
-    public Record(User author, String title, Category category){
+    public Record(User author, String title, Category category) {
         this.author = author;
         this.title = title;
         this.category = category;
@@ -37,7 +37,7 @@ public abstract class Record extends AbstractPersistable<Long>{
         category.addRecords(this);
     }
 
-    public void hasChanged(){
+    public void hasChanged() {
         this.lastChanged = LocalDate.now();
     }
 }

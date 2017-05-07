@@ -17,14 +17,14 @@ import java.util.List;
 @Getter
 public class Category {
 
+    @OneToMany(mappedBy = "category")
+    private final List<Record> records = new ArrayList<>();
     @Id @NotNull @NonNull @Size(min = 1, max = 20)
     private String name;
     @Max(value = 50)
     private String description;
-    @OneToMany(mappedBy = "category")
-    private final List<Record> records = new ArrayList<>();
 
-    public void addRecords(Record record){
+    public void addRecords(Record record) {
         this.records.add(record);
     }
 }
