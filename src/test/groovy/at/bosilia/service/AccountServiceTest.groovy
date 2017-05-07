@@ -1,27 +1,24 @@
 package at.bosilia.service
 
-import at.bosilia.domain.user.User
+import at.bosilia.domain.user.Account
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
-import javax.transaction.Transactional
-
 @SpringBootTest
 @ContextConfiguration
-@Transactional
-class UserServiceTest extends Specification {
+class AccountServiceTest extends Specification {
 
     @Autowired
-    UserService userService
+    AccountService accountService
     final String STRING = "STRING"
 
-    def "create valid user"() {
-        when: "creating user"
-        Optional<User> user = userService.createUser(STRING, STRING)
+    def "create valid account"() {
+        when: "creating account"
+        Optional<Account> account = accountService.createAccount(STRING, STRING, STRING, STRING)
 
         then: "return value should be present"
-        assert user.isPresent()
+        assert account.isPresent()
     }
 }
