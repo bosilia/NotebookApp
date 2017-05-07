@@ -18,13 +18,13 @@ public class AccountService {
     private final AccountRepository accountRepository;
     private final UserService userService;
 
-    public Optional<Account> createAccount(String firstName, String lastName, String accountName, String password){
+    public Optional<Account> createAccount(String firstName, String lastName, String accountName, String password) {
 
         Optional<User> user = userService.createUser(firstName, lastName);
 
-        if(user.isPresent()){
-            try{
-                return Optional.of(accountRepository.save(new Account(user.get(),accountName, password)));
+        if (user.isPresent()) {
+            try {
+                return Optional.of(accountRepository.save(new Account(user.get(), accountName, password)));
             } catch (Exception e) {
                 log.error(e.toString());
             }

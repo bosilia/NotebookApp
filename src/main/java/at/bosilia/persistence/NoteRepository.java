@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
-    List<Note> findNotebooksByTitle (String title);
-    List<Note> findNotebooksByTitleContaining (String title);
+    List<Note> findNotebooksByTitle(String title);
+
+    List<Note> findNotebooksByTitleContaining(String title);
 }

@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface PasswordRepository extends JpaRepository<Password, Long> {
 
-    Optional<Password> findPasswordByHash (String hash);
+    Optional<Password> findPasswordByHash(String hash);
 }

@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    List<Task> findNotebooksByTitle (String title);
-    List<Task> findNotebooksByTitleContaining (String title);
+    List<Task> findNotebooksByTitle(String title);
+
+    List<Task> findNotebooksByTitleContaining(String title);
 }

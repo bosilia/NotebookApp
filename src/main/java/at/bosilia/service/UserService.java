@@ -17,9 +17,9 @@ public class UserService {
     private final UserRepository userRepository;
 
     public Optional<User> createUser(String firstName, String lastName) {
-        try{
+        try {
             return Optional.of(userRepository.save(new User(firstName, lastName)));
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error(e.toString());
             return Optional.empty();
         }
