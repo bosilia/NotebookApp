@@ -24,4 +24,8 @@ public class CategoryService {
             return Optional.empty();
         }
     }
+
+    public Optional<Category> findCategoryByName(String name){
+        return categoryRepository.findCategoryByName(name);
+    }
 }
