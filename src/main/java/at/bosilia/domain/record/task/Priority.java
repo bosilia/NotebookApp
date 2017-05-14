@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NonNull;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-enum Priority {
+public enum Priority {
 
     HIGH("This is very important!"), MEDIUM("This is neither important nor unimportant"),
     LOW("This is unimportant.");
